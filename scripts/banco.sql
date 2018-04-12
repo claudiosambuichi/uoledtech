@@ -4,9 +4,9 @@ GO
 CREATE DATABASE [TesteConhecimento]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'TesteConhecimento', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLSERVER2012\MSSQL\DATA\TesteConhecimento.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'TesteConhecimento', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\TesteConhecimento.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'TesteConhecimento_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL11.SQLSERVER2012\MSSQL\DATA\TesteConhecimento_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'TesteConhecimento_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\TesteConhecimento_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 ALTER DATABASE [TesteConhecimento] SET COMPATIBILITY_LEVEL = 110
 GO
@@ -93,6 +93,30 @@ CREATE TABLE [TesteSeusConhecimentos].[UserData](
  CONSTRAINT [PK_UserData] PRIMARY KEY CLUSTERED 
 (
 	[IdUser] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+/****** Object:  Table [TesteSeusConhecimentos].[UserData]    Script Date: 09/01/2015 14:34:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [TesteSeusConhecimentos].[EnterpriseData](
+	[IdEnterprise] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](100) NULL,
+	[StreetAdress] [varchar](100) NULL,
+	[City] [varchar](50) NULL,
+	[State] [varchar](50) NULL,
+	[ZipCode] numeric(8,0) NULL,
+	[CorporateActivity] [varchar](100) NULL,
+ CONSTRAINT [PK_EnterpriseData] PRIMARY KEY CLUSTERED 
+(
+	[IdEnterprise] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
