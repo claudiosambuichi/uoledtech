@@ -85,7 +85,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [TesteSeusConhecimentos].[UserData](
+CREATE TABLE [UserData](
 	[IdUser] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](100) NULL,
 	[LastName] [varchar](100) NULL,
@@ -95,6 +95,38 @@ CREATE TABLE [TesteSeusConhecimentos].[UserData](
 	[IdUser] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+CREATE TABLE [TesteSeusConhecimentos].[EnterpriseData](
+	[IdEnterprise] [int] IDENTITY(1,1) NOT NULL,
+	[StreetAdress] [nvarchar](150) NOT NULL,
+	[City] [nvarchar](150) NOT NULL,
+	[ZipCode] [nvarchar](150) NOT NULL,
+	[CorporateActivity] [nvarchar](150) NOT NULL,
+	[State] [nvarchar](10) NOT NULL,
+ CONSTRAINT [PK_Enterprise] PRIMARY KEY CLUSTERED 
+(
+	[IdEnterprise] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE  [TesteSeusConhecimentos].[UserEnterpriseData](
+	[IdUserEnterprise] [int] IDENTITY(1,1) NOT NULL,
+	[IdEnterprise] [int] NOT NULL,
+	[IdUser] [int] NOT NULL
+) ON [PRIMARY]	
+GO
+
+ALTER TABLE  [TesteSeusConhecimentos].[UserEnterpriseData]  WITH CHECK ADD  CONSTRAINT [FK_UserEnterprise_EnterpriseData] FOREIGN KEY([IdEnterprise])
+REFERENCES [TesteSeusConhecimentos].[EnterpriseData] ([IdEnterprise])
+GO
+
+ALTER TABLE  [TesteSeusConhecimentos].[UserEnterpriseData]  WITH CHECK ADD  CONSTRAINT [FK_UserEnterprise_UserData] FOREIGN KEY([IdUser])
+REFERENCES [TesteSeusConhecimentos].[UserData] ([IdUser])
+GO
+
+
+
 
 GO
 SET ANSI_PADDING OFF
