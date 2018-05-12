@@ -9,8 +9,6 @@ namespace TesteSeusConhecimentos.Entities.Mapping
 {
     public class UserMap: ClassMap<User>
     {
-
-
         public UserMap()
         {            
             Id(c => c.IdUser);
