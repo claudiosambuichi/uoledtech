@@ -50,7 +50,7 @@ namespace TesteSeusConhecimentos.Web.Infocast
 
         private void UpdateForm()
         {
-            User user = this.userRepository.GetById(idUser);
+            User user = this.userRepository.GetById(idUser);           
 
             if (user != null)
             {

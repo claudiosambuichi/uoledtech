@@ -9,8 +9,12 @@ using NHibernate.Linq;
 
 namespace TesteSeusConhecimentos.Infra
 {
-    public class EnterpriseRepository : ICrudRepository<Enterprise>
+    public class EnterpriseRepository : IEnterpriseRepository
     {
+
+        public EnterpriseRepository()
+        {
+        }
 
         public IList<Enterprise> GetAll()
         {

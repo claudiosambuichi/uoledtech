@@ -5,6 +5,8 @@ using System.Text;
 
 namespace TesteSeusConhecimentos.Entities
 {
+
+
     public class Enterprise
     {
 
