@@ -117,3 +117,17 @@ CREATE TABLE [TesteSeusConhecimentos].[EnterpriseData](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+---------------------------------------------------------
+CREATE TABLE [TesteSeusConhecimentos].[RelationshipsData](
+	[IdRelationships] [int] IDENTITY(1,1) NOT NULL,
+	[IdEnterprise] [int] NOT NULL,
+	[IdUser] [int] NOT NULL,
+	[DateRelationsships] [datetime] NOT NULL,
+	CONSTRAINT FK_Enterprise FOREIGN KEY (IdEnterprise)  REFERENCES [TesteSeusConhecimentos].[EnterpriseData](IdEnterprise),
+	CONSTRAINT FK_User FOREIGN KEY (IdUser)  REFERENCES [TesteSeusConhecimentos].[UserData](IdUser),
+ CONSTRAINT [PK_RelationshipsData] PRIMARY KEY CLUSTERED 
+(
+	[IdRelationships] ASC
+)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]

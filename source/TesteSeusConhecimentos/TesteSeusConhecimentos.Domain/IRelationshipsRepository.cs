@@ -6,11 +6,12 @@ using TesteSeusConhecimentos.Entities;
 
 namespace TesteSeusConhecimentos.Domain
 {
-    public interface IEnterpriseRepository
+    public interface IRelationshipsRepository
     {
-        IList<Enterprise> GetAll();
-        Enterprise GetById(int id);
+
+        IList<Relationships> GetAll();
+        Relationships GetById(int id);
         void Delete(int id);
-        void Save(Enterprise enterprise);
+        void Save(Relationships relationships);
     }
 }

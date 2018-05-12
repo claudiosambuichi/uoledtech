@@ -211,6 +211,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Infocast\InfoRelationShips.aspx" />
+    <Content Include="Infocast\Relationships.aspx" />
     <Content Include="Infocast\InfoEnterprise.aspx" />
     <Content Include="Infocast\InfoUser.aspx" />
     <Content Include="Infocast\Enterprise.aspx" />
@@ -303,6 +305,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infocast\InfoRelationShips.aspx.cs">
+      <DependentUpon>InfoRelationShips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Infocast\InfoRelationShips.aspx.designer.cs">
+      <DependentUpon>InfoRelationShips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Infocast\Relationships.aspx.cs">
+      <DependentUpon>Relationships.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Infocast\Relationships.aspx.designer.cs">
+      <DependentUpon>Relationships.aspx</DependentUpon>
     </Compile>
     <Compile Include="Infocast\InfoEnterprise.aspx.cs">
       <DependentUpon>InfoEnterprise.aspx</DependentUpon>
