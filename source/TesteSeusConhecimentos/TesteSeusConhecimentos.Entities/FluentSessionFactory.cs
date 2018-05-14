@@ -13,7 +13,7 @@ namespace TesteSeusConhecimentos.Entities
     {
 
         private static ISessionFactory session;
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\msv20\Documents\MEGA\projetos\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Web\App_Data\TesteSeusConhecimentos.mdf;Integrated Security=True";
+        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=TesteSeusConhecimentos.mdf;Integrated Security=True";
 
         public static ISessionFactory criarSession()
         {
