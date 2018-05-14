@@ -9,6 +9,11 @@
                     <asp:Label ID="tbCodigo" Text='<%# Eval("IdEnterprise")%>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="Nome">
+                <ItemTemplate>
+                    <asp:Label ID="lbName" Text='<%# Eval("Name")%>' runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Rua">
                 <ItemTemplate>
                     <asp:Label ID="lbStreetAdress" Text='<%# Eval("StreetAdress")%>' runat="server" />

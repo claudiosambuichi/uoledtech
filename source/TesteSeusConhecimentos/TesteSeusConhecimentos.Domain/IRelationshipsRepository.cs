@@ -9,7 +9,7 @@ namespace TesteSeusConhecimentos.Domain
     public interface IRelationshipsRepository
     {
 
-        IList<Relationships> GetAll();
+        IList<CommandRelationships> GetAll();
         Relationships GetById(int id);
         void Delete(int id);
         void Save(Relationships relationships);

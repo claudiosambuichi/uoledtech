@@ -12,6 +12,7 @@ namespace TesteSeusConhecimentos.Entities.Mapping
         public EnterpriseMap()
         {
             Id(c => c.IdEnterprise);
+            Map(c => c.Name);
             Map(c => c.StreetAdress);
             Map(c => c.City);
             Map(c => c.State);

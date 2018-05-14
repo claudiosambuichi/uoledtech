@@ -31,13 +31,13 @@ namespace TesteSeusConhecimentos.Web.Infocast {
         protected global::System.Web.UI.WebControls.Label lbStreetAdress;
         
         /// <summary>
-        /// ddlEmpresa control.
+        /// ddlEnterprise control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmpresa;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEnterprise;
         
         /// <summary>
         /// Label1 control.
@@ -49,13 +49,13 @@ namespace TesteSeusConhecimentos.Web.Infocast {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// ddUser control.
+        /// ddlUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddUser;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUser;
         
         /// <summary>
         /// btnSalvar control.

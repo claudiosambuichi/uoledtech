@@ -22,6 +22,24 @@ namespace TesteSeusConhecimentos.Web.Infocast {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl formStatus;
         
         /// <summary>
+        /// lbName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbName;
+        
+        /// <summary>
+        /// txtName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtName;
+        
+        /// <summary>
         /// lbStreetAdress control.
         /// </summary>
         /// <remarks>

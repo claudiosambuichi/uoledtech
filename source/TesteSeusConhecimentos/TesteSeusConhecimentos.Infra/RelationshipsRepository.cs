@@ -12,11 +12,19 @@ namespace TesteSeusConhecimentos.Infra
 {
     public class RelationshipsRepository : IRelationshipsRepository
     {
-        public IList<Entities.Relationships> GetAll()
+        public IList<CommandRelationships> GetAll()
         {
             using (ISession session = FluentSessionFactory.abrirSession())
             {
-                return (from e in session.Query<Relationships>() select e).ToList();
+                 return (from rs in session.Query<Relationships>()
+                         join u in session.Query<User>() on rs.IdUser equals u.IdUser
+                         join e in session.Query<Enterprise>() on rs.IdEnterprise equals e.IdEnterprise
+                         select new CommandRelationships() { 
+                                 Id = rs.IdRelationships,
+                                 Enterprise = e.Name,
+                                 User = u.Name      
+                         }).ToList();
+                        
             }
         }
 
@@ -24,7 +32,24 @@ namespace TesteSeusConhecimentos.Infra
         {
             using (ISession session = FluentSessionFactory.abrirSession())
             {
-                return session.Get<Relationships>(id);
+                return session.Get<Relationships>(id);                
+            }
+        }
+
+        public bool IsExistsRelationships(int idUser, int idEnterprise)
+        {
+            using (ISession session = FluentSessionFactory.abrirSession())
+            {
+                var relationships = session
+                    .Query<Relationships>()
+                    .Where(x => x.IdUser == idUser &&
+                            x.IdEnterprise == idEnterprise                                           
+                          ).FirstOrDefault();
+
+                if(relationships == null)
+                    return false;
+                else
+                    return true;
             }
         }
 
@@ -59,10 +84,23 @@ namespace TesteSeusConhecimentos.Infra
         public void Save(Relationships relationships)
         {
             if (relationships.IsNew())
-                Add(relationships);
+            {
+                if (!IsExistsRelationships(relationships.IdUser, relationships.IdEnterprise))
+                    Add(relationships);
+                else
+                    throw new Exception("Este relacionamento já existe na base de dados!");
+                
+            }
             else
-                Update(relationships);
+            {
+                if (!IsExistsRelationships(relationships.IdUser, relationships.IdEnterprise))
+                    Update(relationships);
+                else
+                    throw new Exception("Este relacionamento já existe na base de dados!");
+                
+            }
         }
+             
 
         private void Add(Relationships relationships)
         {

@@ -38,7 +38,7 @@ namespace TesteSeusConhecimentos.Web.Infocast
                     UpdateGridRelationShips();
                     break;
                 case ("Edit"):
-                    Response.Redirect("~/Infocast/InfoEnterprise.aspx?id=" + IdRelationShips, true) ;
+                    Response.Redirect("~/Infocast/InfoRelationships.aspx?id=" + IdRelationShips, true) ;
                     break;
             }
            

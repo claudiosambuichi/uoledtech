@@ -11,6 +11,7 @@ namespace TesteSeusConhecimentos.Entities
     {
 
         public virtual int IdEnterprise { get; set; }
+        public virtual string Name { get; set; }   
         public virtual string StreetAdress { get; set; }   
         public virtual string City { get; set; }
         public virtual string State { get; set; }
@@ -21,10 +22,11 @@ namespace TesteSeusConhecimentos.Entities
         {
         }
 
-        public Enterprise(int idEnterprise, string streetAdress, string city, string state, string zipCode, string CorporateActivit)
+        public Enterprise(int idEnterprise, string name, string streetAdress, string city, string state, string zipCode, string CorporateActivit)
         {
             this.IdEnterprise = idEnterprise;
-            this.StreetAdress = StreetAdress;
+            this.Name = name;
+            this.StreetAdress = streetAdress;
             this.City = city;
             this.State = state;
             this.ZipCode = zipCode;

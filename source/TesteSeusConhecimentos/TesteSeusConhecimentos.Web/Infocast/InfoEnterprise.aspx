@@ -3,6 +3,11 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="form-width">
         <h2 id="formStatus" runat="server">Nova Empresa</h2>
+
+        <div class="form-group">
+            <asp:Label ID="lbName" runat="server" Text="Label">Nome:</asp:Label>
+            <asp:TextBox ID="txtName" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
         <div class="form-group">
             <asp:Label ID="lbStreetAdress" runat="server" Text="Label">Rua:</asp:Label>
             <asp:TextBox ID="txtStreetAdress" CssClass="form-control" runat="server"></asp:TextBox>

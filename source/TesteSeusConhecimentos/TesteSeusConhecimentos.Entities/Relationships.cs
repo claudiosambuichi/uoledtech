@@ -18,9 +18,9 @@ namespace TesteSeusConhecimentos.Entities
 
         public Relationships(int idRelationships, int idEnterprise, int idUser, DateTime dateRelationsships)
         {
-            this.IdRelationships = IdRelationships;
+            this.IdRelationships = idRelationships;
             this.IdEnterprise = idEnterprise;
-            this.IdUser = IdUser;
+            this.IdUser = idUser;
             this.DateRelationsships = dateRelationsships;
         }
 

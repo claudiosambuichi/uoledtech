@@ -13,6 +13,8 @@ namespace TesteSeusConhecimentos.Web.Infocast
     public partial class InfoRelationships : System.Web.UI.Page
     {
         private IRelationshipsRepository relationshipsRepository;
+        private IUserRepository userRepository;
+        private IEnterpriseRepository enterpriseRepository;
 
         private int IdRelationships
         {
@@ -29,6 +31,8 @@ namespace TesteSeusConhecimentos.Web.Infocast
         public InfoRelationships()
         {
             this.relationshipsRepository = new RelationshipsRepository();
+            this.userRepository = new UserRepository();
+            this.enterpriseRepository = new EnterpriseRepository();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,21 +41,32 @@ namespace TesteSeusConhecimentos.Web.Infocast
             {
                 SetViewStateEnterprise();
                 UpdateForm();
+                LoadDropDownEnterprise();
+                LoadDropDownUser();
             }
-
-            LoadDropDownEnterprise();
-
-            LoadDropDownUser();
 
         }
 
         private void LoadDropDownEnterprise()
         {
-
+            ddlEnterprise.AppendDataBoundItems = true; 
+            
+            var enterprises = enterpriseRepository.GetAll();                 
+            ddlEnterprise.DataSource = enterprises.ToList();
+            ddlEnterprise.DataTextField = "Name";
+            ddlEnterprise.DataValueField = "IdEnterprise";
+            ddlEnterprise.DataBind();
         }
 
         private void LoadDropDownUser()
         {
+            ddlUser.AppendDataBoundItems = true;  
+
+            var users = userRepository.GetAll();                     
+            ddlUser.DataSource = users.ToList();
+            ddlUser.DataTextField = "Name";
+            ddlUser.DataValueField = "IdUser";
+            ddlUser.DataBind();
 
         }
 
@@ -66,27 +81,27 @@ namespace TesteSeusConhecimentos.Web.Infocast
 
         private void UpdateForm()
         {
-            TesteSeusConhecimentos.Entities.Relationships relationShips = this.relationshipsRepository.GetById(IdRelationships);
+            TesteSeusConhecimentos.Entities.Relationships relationShips  = this.relationshipsRepository.GetById(IdRelationships);
 
             if (relationShips != null)
             {
-                //formStatus.InnerText = "Editar Empresa";
-                //txtStreetAdress.Text = enterprise.StreetAdress;
-                //txtCity.Text = enterprise.City;
-                //txtState.Text = enterprise.State;
-                //txtZipCode.Text = enterprise.ZipCode;
-                //txtCorporateActivit.Text = enterprise.CorporateActivit;
-
+                formStatus.InnerText = "Editar Empresa";
+                ddlEnterprise.DataValueField = relationShips.IdEnterprise.ToString();
+                ddlUser.DataValueField = relationShips.IdUser.ToString();
+          
             }
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
+       
 
-            TesteSeusConhecimentos.Entities.Relationships enterprise = new TesteSeusConhecimentos.Entities.Relationships();
+            TesteSeusConhecimentos.Entities.Relationships enterprise =
+                new TesteSeusConhecimentos.Entities.Relationships(IdRelationships, Convert.ToInt32( ddlEnterprise.SelectedValue), Convert.ToInt32(ddlUser.SelectedValue), DateTime.Now);
+
             relationshipsRepository.Save(enterprise);            
             
-            Response.Redirect("~/Infocast/Enterprise.aspx");
+            Response.Redirect("~/Infocast/Relationships.aspx");
         }
     }
 }

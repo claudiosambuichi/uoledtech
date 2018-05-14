@@ -46,12 +46,19 @@ namespace TesteSeusConhecimentos.Infra
                 {
                     try
                     {
+                        var relationships = session
+                               .Query<Relationships>()
+                               .Where(x => x.IdUser == id
+                                     ).FirstOrDefault();
+                        if (relationships != null)
+                            session.Delete(relationships);                           
+                        
+
                         User user = session.Get<User>(id);
-                        if (user != null)
-                        {
-                            session.Delete(user);
-                            transacao.Commit();
-                        }                       
+                        if (user != null)                        
+                            session.Delete(user);                            
+                        
+                        transacao.Commit();
                     }
                     catch (Exception e)
                     {

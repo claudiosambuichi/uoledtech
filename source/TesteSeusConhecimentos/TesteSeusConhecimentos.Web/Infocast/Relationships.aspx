@@ -6,24 +6,24 @@
         <Columns>
             <asp:TemplateField HeaderText="Codigo">
                 <ItemTemplate>
-                    <asp:Label ID="tbCodigo" Text='<%# Eval("IdRelationships")%>' runat="server" />
+                    <asp:Label ID="tbCodigo" Text='<%# Eval("Id")%>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Empresa">
                 <ItemTemplate>
-                    <asp:Label ID="lbIdEnterprise" Text='<%# Eval("IdEnterprise")%>' runat="server" />
+                    <asp:Label ID="lbIdEnterprise" Text='<%# Eval("Enterprise")%>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Usuário">
                 <ItemTemplate>
-                    <asp:Label ID="lbIdUser" Text='<%# Eval("IdUser")%>' runat="server" />
+                    <asp:Label ID="lbIdUser" Text='<%# Eval("User")%>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
          
             <asp:TemplateField HeaderText="Opções">
                 <ItemTemplate>
-                    <asp:Button runat="server" ID="deleteButtom" Text="Excluir" CommandName="Remove" CommandArgument='<%#Eval("IdRelationships")%>' />
-                    <asp:Button runat="server" ID="editButtom" Text="Editar" CommandName="Edit" CommandArgument='<%#Eval("IdRelationships")%>' />
+                    <asp:Button runat="server" ID="deleteButtom" Text="Excluir" CommandName="Remove" CommandArgument='<%#Eval("Id")%>' />
+                    <asp:Button runat="server" ID="editButtom" Text="Editar" CommandName="Edit" CommandArgument='<%#Eval("Id")%>' />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

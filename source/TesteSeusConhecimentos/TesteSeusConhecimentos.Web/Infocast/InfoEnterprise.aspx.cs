@@ -55,6 +55,7 @@ namespace TesteSeusConhecimentos.Web.Infocast
             if (enterprise != null)
             {
                 formStatus.InnerText = "Editar Empresa";
+                txtName.Text = enterprise.Name;
                 txtStreetAdress.Text = enterprise.StreetAdress;
                 txtCity.Text = enterprise.City;
                 txtState.Text = enterprise.State;
@@ -66,7 +67,7 @@ namespace TesteSeusConhecimentos.Web.Infocast
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            TesteSeusConhecimentos.Entities.Enterprise enterprise = new TesteSeusConhecimentos.Entities.Enterprise(IdEnterprise, txtStreetAdress.Text, txtCity.Text, txtState.Text, txtZipCode.Text, txtCorporateActivit.Text);
+            TesteSeusConhecimentos.Entities.Enterprise enterprise = new TesteSeusConhecimentos.Entities.Enterprise(IdEnterprise, txtName.Text, txtStreetAdress.Text, txtCity.Text, txtState.Text, txtZipCode.Text, txtCorporateActivit.Text);
             enterpriseRepository.Save(enterprise);            
             
             Response.Redirect("~/Infocast/Enterprise.aspx");
