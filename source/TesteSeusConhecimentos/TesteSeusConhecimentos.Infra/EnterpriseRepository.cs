@@ -9,36 +9,31 @@ using NHibernate.Linq;
 
 namespace TesteSeusConhecimentos.Infra
 {
-    public class UserRepository : IUserRepository
+    public class EnterpriseRepository : IEnterpriseRepository
     {
-        //private static IList<User> users;
 
-        public UserRepository()
-        {          
+        public EnterpriseRepository()
+        {
         }
 
-        
-        public IList<User> GetAll()
+        public IList<Enterprise> GetAll()
         {
-           using (ISession session = FluentSessionFactory.abrirSession())
-           {             
-               return (from e in session.Query<User>() select e).ToList();
-           }
-        }
-
-      
-        public User GetById(int id)
-        {
-
             using (ISession session = FluentSessionFactory.abrirSession())
-            {
-                return session.Get<User>(id);
+            {      
+                return (from e in session.Query<Enterprise>() select e).ToList();
             }
         }
 
-       
-        public void Delete(int id) 
-        {           
+        public Enterprise GetById(int id)
+        {
+            using (ISession session = FluentSessionFactory.abrirSession())
+            {
+                return session.Get<Enterprise>(id);
+            }
+        }
+
+        public void Delete(int id)
+        {
 
             using (ISession session = FluentSessionFactory.abrirSession())
             {
@@ -46,19 +41,22 @@ namespace TesteSeusConhecimentos.Infra
                 {
                     try
                     {
+
                         var relationships = session
-                               .Query<Relationships>()
-                               .Where(x => x.IdUser == id
-                                     ).FirstOrDefault();
+                             .Query<Relationships>()
+                             .Where(x => x.IdEnterprise == id
+                                   ).FirstOrDefault();
                         if (relationships != null)
-                            session.Delete(relationships);                           
+                            session.Delete(relationships);
+                           
                         
 
-                        User user = session.Get<User>(id);
-                        if (user != null)                        
-                            session.Delete(user);                            
-                        
+                        Enterprise enterprise = session.Get<Enterprise>(id);
+                        if (enterprise != null)
+                            session.Delete(enterprise);
+
                         transacao.Commit();
+                        
                     }
                     catch (Exception e)
                     {
@@ -66,46 +64,22 @@ namespace TesteSeusConhecimentos.Infra
                         {
                             transacao.Rollback();
                         }
-                        throw new Exception("Erro ao deletar usuário: " + e.Message);
+                        throw new Exception("Erro ao deletar empresa: " + e.Message);
                     }
                 }
             }
         }
 
-        public void Save(User user)
+        public void Save(Enterprise enterprise)
         {
-            if (user.IsNew())
-                Add(user);
+            if (enterprise.IsNew())
+                Add(enterprise);
             else
-                Update(user);
-        }
-
-       
-        private void Add(User user)
-        {
-            using (ISession session = FluentSessionFactory.abrirSession()) 
-            {
-                using (ITransaction transacao = session.BeginTransaction()) 
-                {
-                    try
-                    {
-                        session.Save(user);
-                        transacao.Commit();
-                    }
-                    catch (Exception e) 
-                    {
-                        if(!transacao.WasCommitted)
-                        {
-                            transacao.Rollback();
-                        }
-                        throw new Exception("Erro ao inserir usuário: "+e.Message);
-                    }
-                }
-            }
+                Update(enterprise);
         }
 
 
-        private void Update(User user)
+        private void Add(Enterprise enterprise)
         {
             using (ISession session = FluentSessionFactory.abrirSession())
             {
@@ -113,7 +87,7 @@ namespace TesteSeusConhecimentos.Infra
                 {
                     try
                     {
-                        session.Update(user);
+                        session.Save(enterprise);
                         transacao.Commit();
                     }
                     catch (Exception e)
@@ -122,11 +96,33 @@ namespace TesteSeusConhecimentos.Infra
                         {
                             transacao.Rollback();
                         }
-                        throw new Exception("Erro ao atualizar usuário: " + e.Message);
+                        throw new Exception("Erro ao inserir empresa: " + e.Message);
                     }
                 }
             }
         }
-                       
+
+        private void Update(Enterprise enterprise)
+        {
+            using (ISession session = FluentSessionFactory.abrirSession())
+            {
+                using (ITransaction transacao = session.BeginTransaction())
+                {
+                    try
+                    {
+                        session.Update(enterprise);
+                        transacao.Commit();
+                    }
+                    catch (Exception e)
+                    {
+                        if (!transacao.WasCommitted)
+                        {
+                            transacao.Rollback();
+                        }
+                        throw new Exception("Erro ao atualizar empresa: " + e.Message);
+                    }
+                }
+            }
+        }
     }
 }

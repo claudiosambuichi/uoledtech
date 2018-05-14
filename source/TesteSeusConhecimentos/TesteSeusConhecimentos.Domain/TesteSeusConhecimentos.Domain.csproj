@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandRelationships.cs" />
+    <Compile Include="IEnterpriseRepository.cs" />
+    <Compile Include="ICrudRepository.cs" />
+    <Compile Include="IRelationshipsRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
