@@ -1,0 +1,11 @@
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\TesteSeusConhecimentos.Entities.dll
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\TesteSeusConhecimentos.Entities.pdb
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\FluentNHibernate.dll
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\Iesi.Collections.dll
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\NHibernate.dll
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\FluentNHibernate.xml
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\Iesi.Collections.xml
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\bin\Debug\NHibernate.xml
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\obj\Debug\TesteSeusConhecimentos.Entities.csprojResolveAssemblyReference.cache
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\obj\Debug\TesteSeusConhecimentos.Entities.dll
+C:\Users\vinicius.lima\DesafioUol\uoledtech-master\source\TesteSeusConhecimentos\TesteSeusConhecimentos.Entities\obj\Debug\TesteSeusConhecimentos.Entities.pdb
