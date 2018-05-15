@@ -96,6 +96,45 @@ CREATE TABLE [TesteSeusConhecimentos].[UserData](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+  /****** Object:  Table [TesteSeusConhecimentos].[EnterpriseData]    Script Date: 15/05/2018 13:23:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [TesteSeusConhecimentos].[EnterpriseData](
+	[IdEnterprise] [int] IDENTITY(1,1) NOT NULL,
+	[StreetAddress] [varchar](100) NULL,
+	[City] [varchar](100) NULL,
+	[State] [varchar](100) NULL,
+	[ZipCode] [varchar](100) NULL,
+	[CorporateActivity] [varchar](100) NULL,
+ CONSTRAINT [PK_EnterpriseData] PRIMARY KEY CLUSTERED 
+(
+	[IdEnterprise] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+  /****** Object:  Table [TesteSeusConhecimentos].[RelationshipData]    Script Date: 15/05/2018 13:28:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [TesteSeusConhecimentos].[RelationshipData](
+	[IdRelationship] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[EnterpriseId] [int] NOT NULL,
+	FOREIGN KEY (UserId) REFERENCES TesteSeusConhecimentos.UserData(IdUser),
+	FOREIGN KEY (EnterpriseId) REFERENCES TesteSeusConhecimentos.EnterpriseData(IdEnterprise),
+ CONSTRAINT [PK_RelationshipData] PRIMARY KEY CLUSTERED 
+(
+	[IdRelationship] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
 GO
 SET ANSI_PADDING OFF
 GO
