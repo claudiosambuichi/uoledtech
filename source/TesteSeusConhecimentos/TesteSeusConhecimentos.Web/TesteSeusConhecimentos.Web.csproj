@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -211,6 +212,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Infocast\Companys.aspx" />
+    <Content Include="Infocast\InfoCompany.aspx" />
     <Content Include="Infocast\InfoUser.aspx" />
     <Content Include="Infocast\Users.aspx" />
     <Content Include="packages.config" />
@@ -301,6 +304,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infocast\Companys.aspx.cs">
+      <DependentUpon>Companys.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Infocast\Companys.aspx.designer.cs">
+      <DependentUpon>Companys.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Infocast\InfoCompany.aspx.cs">
+      <DependentUpon>InfoCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Infocast\InfoCompany.aspx.designer.cs">
+      <DependentUpon>InfoCompany.aspx</DependentUpon>
     </Compile>
     <Compile Include="Infocast\InfoUser.aspx.cs">
       <DependentUpon>InfoUser.aspx</DependentUpon>
