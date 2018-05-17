@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using System.Configuration;
 
 namespace TesteSeusConhecimentos.Entities
 {
@@ -13,7 +8,8 @@ namespace TesteSeusConhecimentos.Entities
     {
 
         private static ISessionFactory session;
-        private static string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|TesteSeusConhecimentos.mdf;Integrated Security=True";
+        private static string connectionString = @"Initial Catalog=TesteSeusConhecimentos;Data Source=DESKTOP-RBFLC37\SQLEXPRESS;Integrated Security=SSPI;";
+            //@"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|TesteSeusConhecimentos.mdf;Integrated Security=True";
 
         public static ISessionFactory criarSession()
         {
@@ -23,7 +19,13 @@ namespace TesteSeusConhecimentos.Entities
 
             IPersistenceConfigurer configDB = MsSqlConfiguration.MsSql2012.ConnectionString(connectionString);
 
-            var configMap = Fluently.Configure().Database(configDB).Mappings(c => c.FluentMappings.AddFromAssemblyOf<Mapping.UserMap>());
+            var configMap = Fluently.Configure().Database(configDB)
+                .Mappings(c =>
+                {
+                    c.FluentMappings.AddFromAssemblyOf<Mapping.UserMap>();
+                    c.FluentMappings.AddFromAssemblyOf<Mapping.CompanyMap>();
+                    c.FluentMappings.AddFromAssemblyOf<Mapping.RelationshipMap>();
+                });
             session = configMap.BuildSessionFactory();
 
             return session;
