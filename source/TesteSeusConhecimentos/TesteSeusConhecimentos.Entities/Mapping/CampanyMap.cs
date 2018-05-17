@@ -2,14 +2,18 @@
 
 namespace TesteSeusConhecimentos.Entities.Mapping
 {
-    public class CampanyMap: ClassMap<Company>
+    public class CompanyMap: ClassMap<Company>
     {
-        public CampanyMap()
+        public CompanyMap()
         {
             Id(x => x.IdCompany);
-            Map(x => x.Name);
-            Map(x => x.CNPJ);
-            Table("TesteSeusConhecimentos.CampanyData");
+            Map(c => c.Name);
+            Map(x => x.StreetAdress);
+            Map(x => x.City);
+            Map(x => x.State);
+            Map(x => x.ZipCode);
+            Map(x => x.CompanyActivity);
+            Table("TesteSeusConhecimentos.CompanyData");
         }
     }
 }

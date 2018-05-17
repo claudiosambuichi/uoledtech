@@ -13,7 +13,7 @@ namespace TesteSeusConhecimentos.Web.Infocast {
     public partial class Companys {
         
         /// <summary>
-        /// grdUsers control.
+        /// grdCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

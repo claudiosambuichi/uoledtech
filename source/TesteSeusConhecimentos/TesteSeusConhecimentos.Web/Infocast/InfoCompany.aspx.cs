@@ -45,22 +45,27 @@ namespace TesteSeusConhecimentos.Web.Infocast
 
         private void UpdateForm()
         {
-            Company Company = companyRepository.GetById(idCompany);
+            Company company = companyRepository.GetById(idCompany);
 
-            if (Company != null)
+            if (company != null)
             {
                 formStatus.InnerText = "Editar Empresa";
-                txtName.Text = Company.Name;
-                txtCNPJ.Text = Company.CNPJ;
+                txtName.Text = company.Name;
+                txtStreetAddress.Text = company.StreetAdress;
+                txtCity.Text = company.City;
+                txtState.Text = company.State;
+                txtZipCode.Text = company.ZipCode;
+                txtCompanyActivity.Text = company.CompanyActivity;
             }
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            Company Company = new Company(idCompany, txtName.Text, txtCNPJ.Text);
+            Company Company = new Company(idCompany, txtName.Text, txtStreetAddress.Text, txtCity.Text, 
+                txtState.Text, txtZipCode.Text, txtCompanyActivity.Text);
             companyRepository.Save(Company);
 
-            Response.Redirect("~/Infocast/Company.aspx");
+            Response.Redirect("~/Infocast/Companys.aspx");
         }
     }
 }

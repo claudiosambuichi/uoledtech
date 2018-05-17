@@ -35,8 +35,8 @@
                 <nav>
                     <ul id="menu">
                         <li><a runat="server" href="~/Infocast/Users.aspx">Usuários</a></li>
-                        <li><a runat="server" href="~/Infocast/Company.aspx">Empresas</a></li>
-                        <li><a runat="server" href="~/">Relacionamentos</a></li>
+                        <li><a runat="server" href="~/Infocast/Companys.aspx">Empresas</a></li>
+                        <li><a runat="server" href="~/Infocast/Relationships.aspx">Relacionamentos</a></li>
                     </ul>
                 </nav>
             </div>

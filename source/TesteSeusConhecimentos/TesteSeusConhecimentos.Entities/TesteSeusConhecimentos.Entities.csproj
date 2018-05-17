@@ -51,7 +51,9 @@
     <Compile Include="Company.cs" />
     <Compile Include="FluentSessionFactory.cs" />
     <Compile Include="Mapping\CampanyMap.cs" />
+    <Compile Include="Mapping\RelationshipMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
+    <Compile Include="Relationship.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
